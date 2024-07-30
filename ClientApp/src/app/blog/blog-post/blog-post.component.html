@@ -1,0 +1,21 @@
+<div [formGroup]="blogForm">
+<div formArrayName="blogs">
+<div *ngFor="let blog of blogs.controls; let i=index">
+  <div [formGroupName]="i">
+    <div class="row blogcontainer-row">
+      <div>
+          <div>
+            <textarea class="blogtext" formControlName="text"></textarea>
+          </div>
+          <div class="detailcontainer">
+            Created: <span>{{ blog.value.username }}</span>
+            Created Date: <span>{{ blog.value.datecreate }}</span>
+            <button class="blogbutton blogfloatr" type="button" (click)="updateItem(blog)">Edit</button>
+            <button class="blogbutton blogfloatr" type="button" (click)="deleteItem(i)">Delete</button>
+          </div>             
+      </div>
+    </div>   
+  </div>
+</div>
+</div>
+</div>

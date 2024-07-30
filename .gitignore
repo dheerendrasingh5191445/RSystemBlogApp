@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/README.md.bak
+/ClientApp/tsconfig.json.bak
+/ClientApp/package-lock.json
+/.vs
+/ClientApp/.vscode
+/Server/Server/.vs
+/Server/Server/BlogApi/bin/Debug/net6.0

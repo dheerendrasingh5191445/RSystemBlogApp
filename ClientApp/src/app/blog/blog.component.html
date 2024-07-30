@@ -1,0 +1,20 @@
+<div *ngIf="showloader">
+  loading....
+</div>
+
+<div *ngIf="!showloader" class="blogcontainermain">
+  <div class="blogcontainer">
+  <form [formGroup]="blogForm" (ngSubmit)="onSubmit()">
+    <button class="blogbutton" type="button" (click)="addBlog()">New</button>
+    <app-blog-post
+            [blogForm]="blogForm"
+            [blogs]="blogs"
+            (deleteBlog)="deleteItem($event)"
+            (updateBlog)="updateItem($event)"></app-blog-post>   
+    <p>
+      <button class="blogbutton" type="submit">Save</button>
+    </p>
+     
+    </form>
+  </div>
+</div>
