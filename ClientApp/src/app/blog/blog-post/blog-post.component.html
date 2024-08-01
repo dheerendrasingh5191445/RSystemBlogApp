@@ -9,9 +9,9 @@
           </div>
           <div class="detailcontainer">
             Created: <span>{{ blog.value.username }}</span>
-            Created Date: <span>{{ blog.value.datecreate }}</span>
+            Created Date: <span>{{ blog.value.dateCreated }}</span>
             <button class="blogbutton blogfloatr" type="button" (click)="updateItem(blog)">Edit</button>
-            <button class="blogbutton blogfloatr" type="button" (click)="deleteItem(i)">Delete</button>
+            <button class="blogbutton blogfloatr" type="button" (click)="deleteItem(blog.value.id)">Delete</button>
           </div>             
       </div>
     </div>   
