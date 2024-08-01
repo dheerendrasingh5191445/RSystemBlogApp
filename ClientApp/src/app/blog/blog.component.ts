@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, LOCALE_ID, Inject } from '@angular/core';
 import { BlogModel, State } from './model/blogpost.model';
 import { FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { BlogService } from './service/blog.service';
 import { environment } from '../../environments/environment';
 import { throwError } from 'rxjs';
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
@@ -18,7 +18,7 @@ export class BlogComponent implements OnInit {
   blogForm: FormGroup;
   showloader:boolean = true;
 
-  constructor(private fb:FormBuilder, private service: BlogService, private datePipe: DatePipe) {
+  constructor(private fb:FormBuilder, private service: BlogService, private datePipe: DatePipe, @Inject(LOCALE_ID) public locale: string) {
     this.username = environment.username;
     this.blogForm = this.fb.group({
       blogs: this.fb.array([])
@@ -79,7 +79,7 @@ export class BlogComponent implements OnInit {
     return this.fb.group({
       id : new FormControl(0),
       username : new FormControl(this.username,[Validators.required]),
-      datecreate : new FormControl(this.datePipe.transform(new Date(), 'MM/dd/yyyy'),[Validators.required]),
+      datecreated : new FormControl(this.datePipe.transform(new Date(),"dd/MM/yyyy"),[Validators.required]),
       text: new FormControl('',[Validators.required]),
       state: State.added
     })

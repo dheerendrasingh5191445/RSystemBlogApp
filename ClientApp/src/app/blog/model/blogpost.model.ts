@@ -1,7 +1,7 @@
 export interface BlogModel {
     id:number;
     username:string;
-    datecreate:Date;
+    datecreated:string;
     text:string;
     state: State;
 }
